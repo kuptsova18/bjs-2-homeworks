@@ -2,14 +2,15 @@
 
 function solveEquation(a, b, c) {
 	let arr = [];
-	let d = b ** -4 * a * c;
+	let d = Math.pow(b,2)-4*a*c;
+	console.log(d);
 	if (d < 0) {
 		return arr;
-	} else if (d = 0) {
+	} else if (d === 0) {
 		let x = -b / (2 * a);
 		arr.push(x);
 		return arr;
-	} else {
+	} else if (d > 0) {
 		let x1 = (-b + Math.sqrt(d)) / (2 * a);
 		let x2 = (-b - Math.sqrt(d)) / (2 * a);
 		arr.push(x1, x2);
@@ -26,5 +27,6 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	let bodyCredit = amount - contribution;
 	let monthlyPayment = bodyCredit * (percent + percent / (Math.pow(1 + percent, countMonths) - 1));//расчитаем месячный платеж по формуле
 	let totalAmount = monthlyPayment * countMonths;
-	return totalAmount.toFixed(2);
+	return parseFloat(totalAmount.toFixed(2));
 }
+
